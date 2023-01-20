@@ -43,21 +43,14 @@ const getType = (value) => {
 };
 
 const getTypesOfItems = (arr) => {
-    const result = [];
-    for (const item of arr) {
-        result.push(typeof item);
-    }
-    return result;
+    return arr.map((item) => {
+        return typeof item;
+    });
 };
 
 const allItemsHaveTheSameType = (arr) => {
     const typesArr = getTypesOfItems(arr);
-    for (const item of typesArr) {
-        if (item !== typesArr[0]) {
-            return false;
-        }
-    }
-    return true;
+    return typesArr.every((item) => item === typesArr[0]);
 };
 
 const getRealType = (value) => {
